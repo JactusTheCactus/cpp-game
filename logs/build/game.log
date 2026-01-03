@@ -1,0 +1,4 @@
+src/game.cpp: In function ‘int main()’:
+src/game.cpp:117:25: warning: format not a string literal and no format arguments [-Wformat-security]
+  117 |                 mvprintw(offset.v++, 0, State.config.title.c_str());
+      |                 ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
