@@ -114,7 +114,7 @@ int main()
 		} offset;
 		offset.v = 0;
 		offset.h = 0;
-		mvprintw(offset.v++, 0, State.config.title.c_str());
+		mvprintw(offset.v++, 0, "%s", State.config.title.c_str());
 		mvprintw(offset.v++, 0, "Controls:");
 		mvprintw(offset.v++, 4, "<%c>: Quit", 'q');
 		mvprintw(offset.v++, 4, "<%s>: Buy Upgrade", "1-9,0");
