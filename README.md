@@ -5,10 +5,10 @@
 - Clears text from the cursor to the bottom of the terminal
 ## `clrtoeol()`
 - Clears text from the cursor to the end of the line
-## `mvprintw(x, y, str, …args)`
+## `mvprintw(x,y,str,…args)`
 - Prints formatted text at an XY coordinate
-- `move(x, y)` + `printw(str, …args)`
+- `move(x,y)` + `printw(str,…args)`
 # Notes
-- Do not use `printf(str, …args)`
-	- using `printf(str, …args)` inside ncurses is bad
-	- use `printw(str, …args)` instead
+- Do not use `printf(str,…args)`
+	- using `printf(str,…args)` inside ncurses is bad
+	- use `printw(str,…args)` instead
