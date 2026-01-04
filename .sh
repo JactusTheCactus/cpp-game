@@ -15,7 +15,7 @@ compile() {
 			exit 1
 		}
 }
-rm -r bin logs 2> /dev/null || :
+rm -rf bin logs
 mkdir bin logs logs/out logs/err
 compile game
 find logs -empty -delete
