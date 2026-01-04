@@ -16,6 +16,6 @@ compile() {
 		}
 }
 rm -rf bin logs
-mkdir bin logs logs/out logs/err
+mkdir bin logs/{out,err}
 compile game
 find logs -empty -delete
