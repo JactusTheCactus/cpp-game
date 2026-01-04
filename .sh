@@ -3,17 +3,20 @@ set -euo pipefail
 compile() {
 	local out="logs/out/$1.log"
 	local err="logs/err/$1.log"
-	g++ \
-		"src/$1.cpp" \
-		-std=c++20 \
-		-lncurses \
-		-o "bin/$1" \
-		> "$out" \
-		2> "$err" \
-		|| {
-			code "$err"
-			exit 1
-		}
+	local flags=(
+		-std=c++20
+		-lncurses
+	)
+	local build=(
+		g++
+		"src/$1.cpp"
+		"${flags[@]}"
+		"-o bin/$1"
+	)
+	if ! "${build[@]}" > "$out" 2> "$err"; then
+		code "$err"
+		exit 1
+	fi
 }
 COMMANDS=(
 	code
