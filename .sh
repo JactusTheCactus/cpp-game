@@ -19,11 +19,11 @@ COMMANDS=(
 	code
 	g++
 )
-for i in "${COMMANDS[@]}"
-	do command -v "$i" > /dev/null || {
+for i in "${COMMANDS[@]}"; do
+	if ! command -v "$i" > /dev/null; then
 		echo "[ERR]: command '$i' not found" >& 2
 		exit 1
-	}
+	fi
 done
 find bin logs -delete
 mkdir -p bin logs/{out,err}
