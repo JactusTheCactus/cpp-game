@@ -18,10 +18,7 @@ compile() {
 		return 1
 	fi
 }
-COMMANDS=(
-	code
-	g++
-)
+COMMANDS=(code g++)
 for i in "${COMMANDS[@]}"; do
 	if ! command -v "$i" > /dev/null; then
 		echo "[ERR]: command '$i' not found" >&2
