@@ -15,7 +15,7 @@ compile() {
 	)
 	if ! "${build[@]}" > "$out" 2> "$err"; then
 		code "$err"
-		exit 1
+		return 1
 	fi
 }
 COMMANDS=(
