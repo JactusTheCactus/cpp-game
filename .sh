@@ -3,9 +3,10 @@ set -euo pipefail
 compile() {
 	local out="logs/out/$1.log"
 	local err="logs/err/$1.log"
+	local LIBS=(-lncurses)
 	local FLAGS=(
 		-std=c++20
-		-lncurses
+		"${LIBS[@]}"
 	)
 	local BUILD=(
 		g++
