@@ -15,7 +15,7 @@ compile() {
 			exit 1
 		}
 }
-rm -rf bin logs
-mkdir bin logs/{out,err}
+find bin logs -delete
+mkdir -p bin logs/{out,err}
 compile game
 find logs -empty -delete
