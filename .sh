@@ -28,8 +28,14 @@ done
 rm -rf bin logs
 mkdir -p bin logs/{out,err}
 SRC=(game)
+PIDS=()
 for i in "${SRC[@]}"; do
 	compile "$i" &
+	PIDS+=($!)
 done
-wait
+fail=0
+for pid in "${PIDS[@]}"; do
+	wait "$pid" || fail=1
+done
+(( fail )) && exit 1
 find logs -empty -delete
