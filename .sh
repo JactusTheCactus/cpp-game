@@ -11,7 +11,9 @@ compile() {
 		-std=c++20 \
 		-lncurses \
 		-o "bin/$1" \
-		> "logs/out/$1.log" 2> "logs/err/$1.log" || :
+		1> "logs/out/$1.log" \
+		2> "logs/err/$1.log" \
+		|| :
 }
 rm -r logs bin 2> /dev/null || :
 mkdir bin logs logs/out logs/err
