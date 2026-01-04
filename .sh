@@ -28,7 +28,7 @@ for i in "${COMMANDS[@]}"; do
 		exit 1
 	fi
 done
-find bin logs -delete
+rm -rf bin logs
 mkdir -p bin logs/{out,err}
 compile game
 find logs -empty -delete
