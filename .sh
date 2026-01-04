@@ -3,16 +3,14 @@ set -euo pipefail
 compile() {
 	local out="logs/out/$1.log"
 	local err="logs/err/$1.log"
-	local flags=(-std=c++20 -lncurses)
-	local input="src/$1.cpp"
-	local output="-o bin/$1"
-	local build=(
+	local FLAGS=(-std=c++20 -lncurses)
+	local BUILD=(
 		g++
-		"$input"
-		"${flags[@]}"
-		"$output"
+		"src/$1.cpp"
+		"${FLAGS[@]}"
+		"-o bin/$1"
 	)
-	if ! "${build[@]}" > "$out" 2> "$err"; then
+	if ! "${BUILD[@]}" > "$out" 2> "$err"; then
 		code "$err"
 		return 1
 	fi
@@ -26,8 +24,8 @@ for i in "${COMMANDS[@]}"; do
 done
 rm -rf bin logs
 mkdir -p bin logs/{out,err}
-CPP=(game)
-for i in "${CPP[@]}"; do
+SRC=(game)
+for i in "${SRC[@]}"; do
 	compile "$i" &
 done
 wait
