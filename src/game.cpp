@@ -7,9 +7,7 @@
 #include <vector>
 #include <string>
 #include <stdexcept>
-#define clr()   \
-	move(0, 0); \
-	clrtobot()
+#define clr() move(0, 0); clrtobot()
 class Upgrade
 {
 public:
