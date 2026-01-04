@@ -30,5 +30,9 @@ for i in "${COMMANDS[@]}"; do
 done
 rm -rf bin logs
 mkdir -p bin logs/{out,err}
-compile game
+CPP=(game)
+for i in "${CPP[@]}"; do
+	compile "$i" &
+done
+wait
 find logs -empty -delete
