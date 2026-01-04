@@ -15,7 +15,7 @@ compile() {
 		2> "logs/err/$1.log" \
 		|| :
 }
-rm -r logs bin 2> /dev/null || :
+rm -r bin logs 2> /dev/null || :
 mkdir bin logs logs/out logs/err
 compile game
 find . -empty -delete
