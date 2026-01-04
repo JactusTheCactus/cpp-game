@@ -79,6 +79,7 @@ struct
 	float income;
 	UpgradeList upgrades;
 } State;
+struct {int v, h;} offset;
 int main()
 {
 	initscr();
@@ -108,10 +109,6 @@ int main()
 			running = false;
 			break;
 		}
-		struct
-		{
-			int v, h;
-		} offset;
 		offset.v = 0;
 		offset.h = 0;
 		mvprintw(offset.v++, 0, "%s", State.config.title.c_str());
@@ -138,10 +135,6 @@ int main()
 			State.income += State.upgrades.at(i).income;
 		}
 		State.money += State.income / State.config.tick / 20;
-		struct
-		{
-			int h, v;
-		} offset;
 		clr();
 		offset.v = 0;
 		offset.h = 8;
