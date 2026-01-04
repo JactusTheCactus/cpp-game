@@ -6,15 +6,15 @@ compile() {
 	local LIBS=(-lncurses)
 	local FLAGS=(
 		-std=c++20
-		"${LIBS[@]}"
+		${LIBS[@]}
 	)
 	local BUILD=(
 		g++
 		"src/$1.cpp"
-		"-o bin/$1"
-		"${FLAGS[@]}"
+		-o "bin/$1"
+		${FLAGS[@]}
 	)
-	if ! "${BUILD[@]}" > "$out" 2> "$err"; then
+	if ! ${BUILD[@]} > "$out" 2> "$err"; then
 		code "$err"
 		return 1
 	fi
@@ -27,7 +27,7 @@ for i in "${COMMANDS[@]}"; do
 	fi
 done
 rm -rf bin logs
-mkdir -p bin logs/{out,err}
+mkdir -p bin logs/out logs/err
 SRC=(game)
 PIDS=()
 for i in "${SRC[@]}"; do
