@@ -89,11 +89,11 @@ int main()
 	State.config.tick = 1000;
 	State.money = 100;
 	State.upgrades = UpgradeList()
-						 .new_upgrade("I")
-						 .new_upgrade("II")
-						 .new_upgrade("III")
-						 .new_upgrade("IV")
-						 .new_upgrade("V");
+		.new_upgrade("I")
+		.new_upgrade("II")
+		.new_upgrade("III")
+		.new_upgrade("IV")
+		.new_upgrade("V");
 	char ch;
 	bool running = true;
 	bool menu = true;
