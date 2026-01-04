@@ -10,7 +10,10 @@ compile() {
 		-o "bin/$1" \
 		> "$out" \
 		2> "$err" \
-		|| code "$err"
+		|| {
+			code "$err"
+			exit 1
+		}
 }
 rm -r bin logs 2> /dev/null || :
 mkdir bin logs logs/out logs/err
