@@ -3,7 +3,10 @@ set -euo pipefail
 compile() {
 	local out="logs/out/$1.log"
 	local err="logs/err/$1.log"
-	local FLAGS=(-std=c++20 -lncurses)
+	local FLAGS=(
+		-std=c++20
+		-lncurses
+	)
 	local BUILD=(
 		g++
 		"src/$1.cpp"
