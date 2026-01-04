@@ -7,13 +7,9 @@ compile() {
 		-std=c++20
 		-lncurses
 	)
-	local build=(
-		g++
-		"src/$1.cpp"
-		"${flags[@]}"
-		"-o bin/$1"
-	)
-	if ! "${build[@]}" > "$out" 2> "$err"; then
+	local input="src/$1.cpp"
+	local output="-o bin/$1"
+	if ! g++ "$input" "${flags[@]}" "$output" > "$out" 2> "$err"; then
 		code "$err"
 		return 1
 	fi
