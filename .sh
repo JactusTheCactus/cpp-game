@@ -24,7 +24,7 @@ COMMANDS=(
 )
 for i in "${COMMANDS[@]}"; do
 	if ! command -v "$i" > /dev/null; then
-		echo "[ERR]: command '$i' not found" >& 2
+		echo "[ERR]: command '$i' not found" >&2
 		exit 1
 	fi
 done
