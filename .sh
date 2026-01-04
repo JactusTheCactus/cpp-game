@@ -6,7 +6,13 @@ compile() {
 	local flags=(-std=c++20 -lncurses)
 	local input="src/$1.cpp"
 	local output="-o bin/$1"
-	if ! g++ "$input" "${flags[@]}" "$output" > "$out" 2> "$err"; then
+	local build=(
+		g++
+		"$input"
+		"${flags[@]}"
+		"$output"
+	)
+	if ! "${build[@]}" > "$out" 2> "$err"; then
 		code "$err"
 		return 1
 	fi
