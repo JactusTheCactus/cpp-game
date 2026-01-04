@@ -10,8 +10,8 @@ compile() {
 	local BUILD=(
 		g++
 		"src/$1.cpp"
-		"${FLAGS[@]}"
 		"-o bin/$1"
+		"${FLAGS[@]}"
 	)
 	if ! "${BUILD[@]}" > "$out" 2> "$err"; then
 		code "$err"
