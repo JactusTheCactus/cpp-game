@@ -15,6 +15,16 @@ compile() {
 			exit 1
 		}
 }
+COMMANDS=(
+	code
+	g++
+)
+for i in "${COMMANDS[@]}"
+	do command -v "$i" > /dev/null || {
+		echo "[ERR]: command '$i' not found" >& 2
+		exit 1
+	}
+done
 find bin logs -delete
 mkdir -p bin logs/{out,err}
 compile game
