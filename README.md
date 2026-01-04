@@ -10,5 +10,5 @@
 - `move(x,y)` + `printw(str,…args)`
 # Notes
 - Do not use `printf(str,…args)`
-	- using `printf(str,…args)` inside ncurses is bad
-	- use `printw(str,…args)` instead
+  - using `printf(str,…args)` inside ncurses is bad
+  - use `printw(str,…args)` instead
